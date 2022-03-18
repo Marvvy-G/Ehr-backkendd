@@ -1,0 +1,158 @@
+.carousel-inner{
+    opacity: 0.8;
+}
+.carousel-grid{
+    padding: 20px 20px;
+}
+
+.carousel-inner img {
+    width: 80px;
+    min-height: 350px;
+    object-fit: cover;
+}
+
+.about{
+    background-image: url("https://images.pexels.com/photos/233698/pexels-photo-233698.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center ;
+    padding: 150px 150px;
+    color:#fff;
+    justify-content: center;
+    text-align: center;
+}
+.about-story{
+    padding: 30px 30px;
+}
+
+  .address{
+    margin: 0;
+    background-image: url("https://images.pexels.com/photos/887751/pexels-photo-887751.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: scroll;
+    background-position: center ;
+      color: #000;
+      justify-content: center;
+      text-align: center;
+      font-size: 20px;
+      padding :100px;
+  }
+  .phone{
+      color: #000;
+      text-decoration: none;
+  }
+.contact{
+    color: #000;
+}
+.message{
+    padding-top: 50px;
+text-align: center;
+}
+  .event-mmgt{
+      background-image: url("https://images.pexels.com/photos/50675/banquet-wedding-society-deco-50675.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"); 
+      color: #fff;
+      justify-content: center;
+      text-align: center;
+      padding: 100px;
+      font-size: 15px;
+      background-repeat: no-repeat;
+      align-items: center;
+    }
+
+.interior-decor{
+        background-image: url("https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"); 
+        color: #fff;
+        justify-content: center;
+        text-align: center;
+        padding: 100px;
+        font-size: 15px;        
+        background-repeat: no-repeat;
+      
+}
+.food-production{
+        background-image: url("https://images.pexels.com/photos/2889093/pexels-photo-2889093.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"); 
+        color: #fff;
+        justify-content: center;
+        text-align: center;
+        padding: 100px;
+        font-size: 15px;        
+        background-repeat: no-repeat;
+}
+.space{
+   padding-right: 80px;
+}
+.abt-img{
+    width: 500px;
+    height: 500px;
+    border-radius: 5px;
+}
+.sec{
+   margin: 0;
+    padding: 50px 20px;
+}
+
+
+
+.p-3{
+    
+    background-color: rgb(181, 183, 192);
+}
+.btn-block{
+    padding:20px 20px ;
+}
+.about-us{
+    justify-items: center;
+    padding-top: 50px;
+    
+}
+
+.back{
+  padding-top:15px;
+}
+@media (max-width:1100px){
+    .carousel-inner img {
+        min-width: 200px;
+        min-height: 200px;
+        object-fit: cover;
+    }
+    .sec{
+        display: inline-block;
+    }
+}
+
+@media (max-width: 500px) {
+  
+  .sectors{
+    font-size: 18px;
+    margin-top: 20px;
+  }
+ .welcome {
+     
+     font-size: 20px;
+     }
+     .carousel-inner img {
+         background-size: cover;
+     }
+     .carousel-grid{
+        display: inline-block;
+    }
+    .sec{
+        display: block;
+    }
+
+    .our-mission{
+        padding-top: 15px;
+    }
+}
+
+@media (max-width: 300px) {
+  .welcome{
+    font-size: 30px;
+  }
+  .carousel-inner img {
+      background-size: cover;
+  }
+}
