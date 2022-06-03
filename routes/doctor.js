@@ -4,7 +4,9 @@ const{ verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin }
    
 const
 products = require("../models/products"),
-Patient = require("../models/patients")
+Patient = require("../models/patients"),
+labProduct      = require("../models/labProducts"),
+labOrders       = require("../models/labOrders")
 
 
 router.get("/showpatients", async (req, res) => {
@@ -26,12 +28,26 @@ router.get("/showpatients/:id", verifyTokenAndAuthorization, function(req, res){
               if (err){
                 res.status(200).json(err);
               } else {
+                labProduct.find({},(err, labProducts) => {
+                  if (err){
+                      console.log(err);   
+                } else
+                {
+                  labOrders.find({}, (err, labOrders) => {
+                      if(err){
+                          console.log(err);
+                     
+              }
+                else{
                 res.status(500).json(Patient);
                
               }
           });
         }
-    });
+      });
+      }
+    }); }
+    })
   });
 
 module.exports = router

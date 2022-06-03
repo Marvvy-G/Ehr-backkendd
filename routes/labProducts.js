@@ -1,40 +1,36 @@
 const router = require("express").Router();
 const { query } = require("express");
-const Product = require("../models/products");
-const{  verifyToken, 
-        verifyTokenAndAuthorization, 
-        verifyTokenAndAdmin 
-    } = require("./verifyToken");
+const labProduct = require("../models/labProducts");
 
 //CREATE
-router.post("/pharmacy", verifyTokenAndAdmin, async(req, res) =>{
-    const newProduct = new Product(req.body)
+router.post("/lab", async(req, res) =>{
+    const newlabProduct = new labProduct(req.body)
 
 try{
-    const savedProduct =await newProduct.save();
-    res.status(500).json(savedProduct)
+    const savedlabProduct =await newlabProduct.save();
+    res.redirect("/api/labproducts/lab")
 } catch(err){
     console.log(err)
 };
 });
 
 // //UPDATE a PRODUCTS
-router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
+router.put("/:id", async (req, res) => {
     try {
-        const updatedProduct = await Product.findByIdAndUpdate(
+        const updatedlabProduct = await labProduct.findByIdAndUpdate(
             req.params.id, {
             $set: req.body
         }, {new: true});
-        res.status(200).json(updatedProduct); 
+        res.status(200).json(updatedlabProduct); 
     } catch(err){
         res.status(500).json(err);
     } return;
 });
 
 //DELETE
-router.delete("/:id", verifyTokenAndAdmin, async(req, res) => {
+router.delete("/:id", async(req, res) => {
     try{
-        await Product.findByIdAndDelete(req.params.id)
+        await labProduct.findByIdAndDelete(req.params.id)
         res.status(200).json("Product has been deleted...")
     } catch(err){
         res.status(500).json(err)
@@ -43,35 +39,30 @@ router.delete("/:id", verifyTokenAndAdmin, async(req, res) => {
 
 
 //GET SELECTED PRODUCT
-router.get("/pharmacy/find/:id", async(req, res) => {
+router.get("/lab/find/:id", async(req, res) => {
     try{
-        const Product = await Product.findById(req.params.id);
-        res.status(200).json(Product);
+        const labProduct = await labProduct.findById(req.params.id);
+        res.status(200).json(labProduct);
     } catch(err){
         res.status(500).json(err)
     }
 });
 
 // GET ALL PRODUCTS
-router.get("/pharmacy", async(req, res) => {
+router.get("/lab", async(req, res) => {
     const qNew = req.query.new;
-    const qCategory = req.query.category;
     try{
-        let products;
+        let labproducts;
 
         if(qNew){
-            products = await Product.find().sort({createdAt: -1}).limit(5)
-        } else if(qCategory){
-            products = await Product.find({categories:{
-                $in:[qCategory],
-            },
-        });
-        } else {
-            products = await Product.find();
+            labproducts = await labProduct.find().sort({createdAt: -1}).limit(5)
+        } else 
+         {
+            labproducts = await labProduct.find();
         }
-        res.status(500).json(products)
+        res.render("lab", {labProduct:labproducts});
     } catch(err){
-        res.status(200).json(err)
+        res.status(500).json(err)
     }
 });
 

@@ -4,6 +4,10 @@ const mongoose = require("mongoose");
 
 
 const OrderSchema = new mongoose.Schema({
+    amount:{
+        type: Number,
+        require: true
+    },
     userId: {
         type: String,
         required: true, 

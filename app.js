@@ -9,7 +9,9 @@ authPatientRoute = require("./routes/authpatient"),
 patientRoute     = require("./routes/patient"),
 doctorRoute      = require("./routes/doctor"),
 pharmacyRoute    = require("./routes/pharmacy"),
-historyRoute     = require("./routes/history")
+historyRoute     = require("./routes/history"),
+labProductsRoute     = require("./routes/labProducts"),
+labOrdersRoute       = require("./routes/labOrders")
 
 //technologies
 const 
@@ -42,6 +44,8 @@ app.use("/api/patient", patientRoute);
 app.use("/api/doctor", doctorRoute);
 app.use("api/pharmacy", pharmacyRoute);
 app.use("/api/history", historyRoute);
+app.use("/api/labProducts/", labProductsRoute);
+app.use("/api/labOrders",labOrdersRoute);
 
 
 app.listen(process.env.PORT || 5000,
