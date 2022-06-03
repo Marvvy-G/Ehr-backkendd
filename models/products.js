@@ -16,6 +16,10 @@ const ProductSchema = new mongoose.Schema({
     categories: {
         type: Array
     },
+    price: {
+        type: String,
+        require: true
+    }
 },
 {
     timestamp: true 

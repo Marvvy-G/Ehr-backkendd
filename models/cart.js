@@ -17,6 +17,14 @@ const CartSchema = new mongoose.Schema({
        }
     }
 ],
+labProducts: {
+    labProductId:{
+        type: String
+    },
+    quantity:{
+        type: Number,  
+    }
+}
 },
 {
     timestamp: true 

@@ -1,10 +1,23 @@
 const mongoose = require("mongoose");
 
 const labOrderSchema = new mongoose.Schema({
-    testtype: {
-        type: String,
-        required: true,
+    amount:{
+        type: Number,
+        require: true
     },
+    userId: {
+        type: String,
+        required: true, 
+        unique:true
+    }, 
+    labProducts: {
+        labProductId:{
+            type: String
+        },
+        quantity:{
+            type: Number,  
+        }
+    }
 },
 {
     timestamp: true 
